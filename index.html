@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charging</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Reem+Kufi:wght@500&family=Roboto:wght@500&family=Zeyada&display=swap');
+
+        * {
+            margin: 0;
+            font-family: 'Nova Square', sans-serif;
+            font-family: 'Reem Kufi', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            /* font-family: 'Zeyada', cursive; */
+        }
+
+        .yline {
+            height: 10px;
+            width: 100%;
+            background-color: yellow;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%; 
+            height: 100vh; 
+            overflow: hidden;
+            /* animation: v-expand 2s ease-in forwards; */
+        }
+        /* @keyframes v-expand {
+            from{
+                position: absolute;
+                top: 900px;
+                left: 40%;
+                width: 500px;
+                height: 500px;
+                border-radius: 100px;
+                /* transform: translate(-50%,-50%) scale(0); */
+            /* } */
+            /* to{ */
+                /* width: 100%;
+                height: 100vh; */
+                /* transform: translate(-50%,-50%) scale(1); */
+             /* }  */
+            
+        /* } */
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            z-index: -10; 
+        }
+        .video-text{
+            position: absolute;
+            top: 10px;
+            color: white;
+        }
+        .l_cont {
+            margin-left: 15px;
+            /* background: url(avinya.mp4); */
+
+        }
+        .menu_top{
+            display: flex;
+            gap: 900px;
+        }
+        .landing {
+            height: 100vh;
+            width: 100%;
+            
+        }
+
+        .landing .menu {
+            position: relative;
+            /* position: absolute; */
+            top: 15px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .landing p {
+            position: relative;
+            top: 6px;
+        }
+
+        .login {
+            position: relative;
+            top: 20px;
+            /* left: 700px; */
+            display: flex;
+            gap: 15px;
+        }
+
+        .login p:last-child {
+            height: 30px;
+            width: 100px;
+            /* background-color: black; */
+            border-radius: 20px 20px 20px 20px;
+            /* color: white; */
+            align-items: center;
+            /* padding: 5px; */
+            position: relative;
+            /* top: 10px; */
+        }
+
+        .leftText {
+            width: 50%;
+            position: relative;
+            top: 50px;
+        }
+
+        .leftText #p1 {
+            font-size: 100px;
+
+        }
+
+        .our {
+            position: relative;
+            top: 100px;
+        }
+
+        .our button {
+            height: 60px;
+            width: 30%;
+            border: 1px solid;
+            border-radius: 30px 30px 30px 30px;
+            background-color: white;
+        }
+
+        .our p {
+            /* margin-left: 5px; */
+            font-size: 15px;
+            position: relative;
+            top: 28%;
+            left: -15%;
+
+        }
+
+        .our .around {
+            position: relative;
+            left: 145px;
+            top: -10px;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: yellow;
+        }
+
+        .around svg {
+            margin: 5px;
+        }
+
+        .leftText #p2 {
+            position: relative;
+            top: 150px;
+            font-size: 40px;
+        }
+
+        .rem {
+            position: relative;
+            top: 200px;
+            display: flex;
+            font-size: 50px;
+            gap: 100px;
+        }
+
+        .scnd {
+            width: 60%;
+        }
+
+        .main_menu {
+            position: relative;
+            top: 400px;
+            right: 20px;
+        }
+
+        .table-style {
+            position: relative;
+            top: 400px;
+            width: 95%;
+            height: 500px;
+            border-collapse: collapse;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-bottom: 1px solid black;
+            font-size: 40px;
+        }
+
+        .table-style tr:hover {
+            background-color: yellow;
+            /* (Optional) Add transition for smoother animation */
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .page2 {
+            position: relative;
+            top: 500px;
+            left: 5%;
+            display: flex;
+            gap: 100px;
+        }
+
+        .page2 p {
+            font-size: 20px;
+        }
+
+        .page2 h3 {
+            font-size: 50px;
+            color: gray;
+            font-weight: lighter;
+            line-height: 100px;
+
+        }
+
+        .page2 h3:hover {
+            color: black;
+        }
+
+        .cftr {
+            position: relative;
+            top: 350px;
+        }
+
+        .cftr p:last-child {
+            color: gray;
+        }
+
+        .page3 {
+            position: relative;
+            top: 700px;
+            left: 2%;
+            background-image: url(page3.webp);
+            background-size: cover;
+            border-radius: 10px;
+            width: 95%;
+            height: 90vh;
+
+        }
+
+        .p3cont {
+            position: relative;
+            top: 75%;
+            left: 5%;
+            font-size: 30px;
+            color: white;
+            display: flex;
+            gap: 40%;
+        }
+
+        .p3cont button {
+            border-radius: 30px;
+            height: 60px;
+            width: 20%;
+            background-color: white;
+            /* display: flex; */
+
+        }
+
+        .p3cont p {
+            /* padding: 30px; */
+            position: relative;
+            font-size: 20px;
+            top: 15px;
+            left: -50px;
+        }
+
+        .drarrow {
+            position: relative;
+            top: -22px;
+            left: 220px;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: yellow;
+        }
+
+        .drarrow svg {
+            padding: 7px;
+        }
+
+        .lastpage {
+            background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            height: 90vh;
+            width: 95%;
+            border-radius: 10px;
+            position: relative;
+            top: 800px;
+            left: 2%;
+
+            /* font-size: 30px; */
+        }
+
+        .lastpage h3 {
+            position: relative;
+            top: 10px;
+            left: 2%;
+            font-size: 120px;
+            font-weight: lighter;
+        }
+
+        .lastpage p {
+            position: relative;
+            top: 220px;
+            left: 5%;
+        }
+
+        .lastpage p:last-child {
+            position: relative;
+            top: 250px;
+            color: gray;
+        }
+
+        .contact {
+            position: relative;
+            top: 900px;
+            left: 7%;
+            display: flex;
+            gap: 20%;
+        }
+
+        .lb button {
+            position: relative;
+            top: 50px;
+            /* left: 5%; */
+            background-color: black;
+            border-radius: 30px;
+            height: 40px;
+            width: 10%;
+            /* background-color: white; */
+        }
+
+        .lb p {
+            /* padding: 5px; */
+            position: relative;
+            top: 0;
+            left: 1px;
+            color: white;
+        }
+
+        .rtab td {
+            padding: 10px 70px 0px 50px;
+
+        }
+
+        #lt2 a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="yline"></div>
+    <div class="landing">
+        <div class="video-container">
+            <video autoplay muted loop>
+              <source src="avinya.mp4" type="video/mp4">
+            </video>
+            </div>
+        <div class="l_cont">
+            <!-- <div class="video-container">
+                <video autoplay muted loop>
+                  <source src="avinya.mp4" type="video/mp4">
+                </video>
+                </div> -->
+                <div class="video-text">
+                    <div class="menu_top">
+
+                    <div class="menu">
+                        <h2>Energy Park</h2>
+                        <p>Solutions</p>
+                        <p>About</p>
+                    </div>
+                    <div class="login">
+                        <p>Login</p>
+                        <p>Contact</p>
+                    </div>
+                    </div>
+                    <div class="leftText">
+                        <p id="p1">Get set for an electric future.</p>
+        
+                        <div class="our"><button>
+                                <p>Our Solutions</p>
+                                <div class="around">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+        
+                        <p id="p2">Experts in smart <br> EV charging solutions</p>
+                    </div>
+                </div>
+            
+            <div class="rem">
+                <div class="scnd">
+                    <h3>Future-proof your home or business with our tailored and affordable smart EV charge point
+                        solutions.</h3>
+                </div>
+
+                <div class="spic">
+                    <img src="charger.webp" alt="" width="400px" style="border-radius: 10px;">
+                </div>
+            </div>
+
+            <table class="table-style">
+                <tr>
+                    <td> 01</td>
+                    <td>Home</td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                        </svg></td>
+                </tr>
+                <tr>
+                    <td> 02</td>
+                    <td>Residential</td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                        </svg></td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>Workplace</td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                        </svg></td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>Commercial</td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                        </svg></td>
+                </tr>
+            </table>
+
+
+
+        </div>
+        <div class="page2">
+            <img src="page2.webp" alt="" width="50%" height="900px" style="border-radius: 10px;">
+            <div class="contnt">
+                <p>Curious about the benefits of <br>
+                    working with Energy Park?</p><br><br>
+                <h3>Knowledge</h3>
+                <h3>Guidance</h3>
+                <h3>Support</h3>
+                <div class="cftr">
+                    <p>Your EV partner</p>
+                    <p>From the outset, we’ll work in partnership with you <br>to fully understand your needs and create
+                        the best,<br> most cost-effective solution for you.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="page3">
+            <div class="p3cont">
+                <h3>Smart EV charging solutions <br>
+                    for homes and businesses</h3>
+                <button>
+                    <p>Our Solutions</p>
+                    <div class="drarrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="lastpage">
+            <h3>Ready to get your <br> electric future set?</h3>
+            <p>EV charging solutions for homes and businesses.</p>
+            <p>We’ll listen to your needs, identify the best approach, and then <br> create a bespoke smart EV charging
+                solution that’s right for you.</p>
+        </div>
+        <div class="contact">
+            <div class="left">
+                <p style="font-size: 20px;">Experts in smart EV charging solutions <br>
+                    for domestic properties, commercial <br>
+                    buildings and public locations.</p>
+                <div class="lb">
+                    <!-- <button>
+                        <p>Client Portal</p>
+                    </button> -->
+                </div>
+            </div>
+            <div class="rtab">
+                <table id="lt1" style="border: none;border-collapse: collapse;">
+                    <tr>
+                        <td>Navigation</td>
+                        <td>Follow us</td>
+                        <td>Address</td>
+                    </tr>
+                </table>
+                <br>
+                <table id="lt2" style="border: none;border-collapse: collapse;">
+                    <tr>
+                        <td><a href="">Solutions</a></td>
+                        <td><a href="">Linkedin</a></td>
+                        <td>
+                            <p>Harpenden Hall</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Contact</a></td>
+                        <td><a href="">Twitter</a></td>
+                        <td>
+                            <p>Southdown Road</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Terms</a></td>
+                        <td><a href="">Instagram</a></td>
+                        <td>
+                            <p>Harpenden </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a href="">Facebook</a></td>
+                        <td>
+                            <p>AL5 1TE</p>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
